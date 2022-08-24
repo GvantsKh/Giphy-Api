@@ -1,0 +1,1 @@
+export const cat = ['Internet Cats', 'Meme`s', 'Typing', 'Space', 'Rick and Morty'];
