@@ -11,7 +11,7 @@ export class Categories extends Base {
     _getCategories(){
 
             return this.appJson.map((obj) => {
-                    return `<div class="cat">${obj}</div>`
+                    return `<div class="cat" id="${obj}">${obj}</div>`
             }).join(" ");   
     }
 

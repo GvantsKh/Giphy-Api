@@ -6,4 +6,6 @@ export class Base {
         let elem = document.getElementById(id);
         elem.innerHTML = value;
     }
+
+
 }
