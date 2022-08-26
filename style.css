@@ -10,6 +10,8 @@
     margin: auto;
 }
 
+
+/* title style */
 .header{
     margin-left: 200px;
 }
@@ -18,9 +20,11 @@ h1{
     font-weight: normal;
     font-size: 50px;
     margin-left: 50px;
-
+    margin-bottom: 5px;
 }
 
+
+/* buttons styles */
 .buttons{
     display: flex;
     margin-top: 6px;
@@ -28,8 +32,8 @@ h1{
 
 .buttons input {
     margin: 3px;
-    border-radius: 3px;
-    height: 35px;
+    border-radius: 8px;
+    height: 40px;
 }
 
 .search{
@@ -54,32 +58,35 @@ h1{
     display: flex;
 }
 
-.cat{
+.category-item{
     background-color:ghostwhite;
     color: black;
     text-align: center;
     margin: 5px;
     padding: 8px;
-    height: 35px;
-    border-radius: 3px;
+    height: 40px;
+    border-radius: 8px;
 }
 
+
+/* buttons active styles */
 .active-category{
-    border: 4px solid #17a2b8;
-    padding: 5px;
+    outline: 4px solid #17a2b8;
 
 }
 
 .active-submit{
-    border: 4px solid #20c997;
+    outline: 4px solid #20c997;
 
 }
 
 .active-trend{
-    border: 4px solid #e83e8c;
+    outline: 4px solid  #e83e8c;
 
 }
 
+
+/* gifs styles */
 .giphy{
     display: flex;
     flex-wrap: wrap;

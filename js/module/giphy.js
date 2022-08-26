@@ -20,8 +20,8 @@ export class Giphy extends Base {
 
 
 
-    render() {
-        this.setContent('giphy', this._getGiphy());
+    _render() {
+        this._setContent('giphy', this._getGiphy());
     }
 
 }

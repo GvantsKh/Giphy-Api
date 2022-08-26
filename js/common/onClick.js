@@ -1,4 +1,5 @@
 import {Giphy} from "../module/giphy.js";
+import { giphyUrl } from "./config.js";
 
 
 export function getLink(arr, link,value){
@@ -34,8 +35,6 @@ export function removeSpaces(text){
     return result;
 }
 
-
-
 export function getContent(link){
     fetch(link)
     .then((res) => {
@@ -43,18 +42,55 @@ export function getContent(link){
     })
     .then((res)=>{
         let gifs = new Giphy(res);
-        gifs.render();
+        gifs._render();
     });
 }
 
-
-export function addSearchValueToCategory(arr, categoryClass){
+export function addSearchValueToCategory(arr, categoryClass, params){
     let searchValue = document.getElementById('search');
     let newCategory = searchValue.value;
 
     if( newCategory !== ("")){
         arr.push(newCategory);
-        categoryClass.render();
+        categoryClass._render();
         arr.shift();
+        getContent(getLink(params, giphyUrl, searchValue.value ));
+
     }
 }
+
+export function removeActiveClass(){
+
+    let btnSubmit = document.getElementById('submit');
+    let btnCategory = document.getElementsByClassName('category-item');
+    let btnTrend = document.getElementById('trends');
+
+    btnSubmit.classList.remove('active-submit');
+    btnTrend.classList.remove('active-trend');
+
+    for (let i = 0; i < btnCategory.length; i++) {
+        btnCategory[i].classList.remove('active-category');
+    }
+    
+}
+
+export function categoryBtnClick(btnCategory, arr){
+    
+    for (let i = 0; i < btnCategory.length; i++) {
+        
+        let categoryElem = btnCategory[i];
+        let value = removeSpaces(categoryElem.id);
+    
+        categoryElem.addEventListener('click', () => {
+    
+            for (let j = 0; j < btnCategory.length; j++) {
+                btnCategory[j].classList.remove('active-category');
+            }
+    
+            removeActiveClass();
+            categoryElem.classList.add('active-category');
+            getContent(getLink(arr, giphyUrl, value));
+        })
+    }
+}
+    

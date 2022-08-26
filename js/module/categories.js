@@ -9,14 +9,13 @@ export class Categories extends Base {
     }
 
     _getCategories(){
-
             return this.appJson.map((obj) => {
-                    return `<div class="cat" id="${obj}">${obj}</div>`
+                    return `<div class="category-item" id="${obj}">${obj}</div>`
             }).join(" ");   
     }
 
-    render() {
-        this.setContent('categories', this._getCategories());
+    _render() {
+        this._setContent('categories', this._getCategories());
     }
 
 }
